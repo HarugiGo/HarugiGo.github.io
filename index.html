@@ -2,88 +2,149 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Summer Xia — Writing & Photography">
+    <meta name="theme-color" content="#111111">
     <title>Summer Xia</title>
-    <meta name="description" content="Summer Xia · 大明湖畔夏雨荷">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&family=Noto+Serif+SC:wght@400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css?v=3e13bc5af32b">
+    <script src="script.js?v=ec80eaf13939" defer></script>
 </head>
 <body>
-    <div class="bg-image"></div>
-    <div class="bg-overlay"></div>
+    <a class="skip-link" href="#photographs">跳转至摄影作品</a>
+    <div class="page" id="top">
+        <header class="site-header">
+            <nav class="external-nav" aria-label="其他页面">
+                <a href="https://summerxia.com/ai-builders-digest/">AI Digest <span aria-hidden="true">↗</span></a>
+                <a href="https://summerxia.com/politics-digest/">Politics Digest <span aria-hidden="true">↗</span></a>
+                <a href="https://github.com/HarugiGo" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+            </nav>
+        </header>
 
-    <header class="site-header">
-        <nav class="nav">
-            <a href="https://github.com/HarugiGo" target="_blank" rel="noopener" class="nav-github">GitHub</a>
-        </nav>
-    </header>
+        <main>
+            <section class="hero" aria-labelledby="hero-title">
+                <div class="hero-content">
+                    <h1 id="hero-title">Summer Xia</h1>
+                    <nav class="hero-links" aria-label="文章与照片">
+                        <a href="https://www.saisperspectives.com/202526-issue/2026/3/27/chains-of-resilience" target="_blank" rel="noopener"><span class="link-label">Writing</span><span class="link-title">Chains of Resilience</span><span class="link-arrow" aria-hidden="true">↗</span></a>
+                        <a href="#photographs"><span class="link-label">Photography</span><span class="link-title">Photo Collection</span><span class="link-arrow" aria-hidden="true">↓</span></a>
+                    </nav>
+                </div>
+                <div class="hero-footnote">
+                    <a href="#photographs" aria-label="向下查看照片">Scroll <span aria-hidden="true">↓</span></a>
+                </div>
+            </section>
 
-    <main id="top">
-        <section class="hero">
-            <h1 class="hero-title">Harugi</h1>
-            <div class="hero-tags">
-                <span>AI 共学</span>
-                <span class="dot">·</span>
-                <span>街头摄影</span>
-                <span class="dot">·</span>
-                <span>国际政策分析</span>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Work</h2>
-            <div class="cards">
-                <a class="card" href="https://kvs656xf1s.feishu.cn/docx/LcVYdN66voGmfMxl2tVcEqAJn0g" target="_blank" rel="noopener">
-                    <h3 class="card-title">AI 小程序 · 酒窖小管家</h3>
-                    <p class="card-meta">飞书文档 · 2025.03</p>
-                </a>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Writing</h2>
-            <div class="cards">
-                <a class="card" href="https://saisobserver.org/2024/11/13/the-shifting-landscape-of-iphone-manufacturing-from-china-to-india/" target="_blank" rel="noopener">
-                    <h3 class="card-title">The Shifting Landscape of iPhone Manufacturing from China to India</h3>
-                    <p class="card-meta">SAIS Observer · 2024.11</p>
-                </a>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Photography</h2>
-            <div class="slider" id="slider">
-                <div class="slider-track">
-                    <figure class="slide">
-                        <img src="images/photo-geneva.jpg" alt="瑞士 · 日内瓦" loading="eager">
-                        <figcaption>瑞士 · 日内瓦</figcaption>
+            <section class="photographs" id="photographs" aria-labelledby="photographs-title">
+                <div class="photo-grid">
+                    <header class="gallery-intro">
+                        <h2 id="photographs-title">Photography</h2>
+                        <p class="gallery-count">Photo Collection</p>
+                        <p class="gallery-hint">Click to enlarge.</p>
+                    </header>
+                    <figure class="photograph photograph-01" data-city="Vienna" data-location="维也纳">
+                        <a class="photo-link" href="images/photo-vienna-stephansdom-1.jpg" aria-label="查看照片 01：维也纳">
+                            <picture><source srcset="images/photo-vienna-stephansdom-1-sm.webp 720w, images/photo-vienna-stephansdom-1.webp 1333w" sizes="(max-width: 360px) calc(100vw - 40px), (max-width: 700px) calc(100vw - 48px), (min-width: 1800px) 794px, calc(45vw - 16px)" type="image/webp"><img src="images/photo-vienna-stephansdom-1.jpg" alt="维也纳，教堂窗前的石雕与光线" width="1333" height="2000" loading="lazy" decoding="async"></picture>
+                        </a>
+                        <figcaption><span class="photo-place">Vienna <span lang="zh-CN">维也纳</span></span><span class="photo-number">01</span></figcaption>
                     </figure>
-                    <figure class="slide">
-                        <img src="images/photo-osaka.jpg" alt="日本 · 大阪" loading="lazy">
-                        <figcaption>日本 · 大阪</figcaption>
+                    <figure class="photograph photograph-02 photograph-vienna-opera" data-city="Vienna" data-location="维也纳">
+                        <a class="photo-link" href="images/photo-vienna-opera.jpg" aria-label="查看照片 02：维也纳">
+                            <picture><source srcset="images/photo-vienna-opera-sm.webp 720w, images/photo-vienna-opera.webp 1333w" sizes="(max-width: 360px) calc(100vw - 40px), (max-width: 700px) calc(100vw - 48px), (min-width: 1800px) 794px, calc(45vw - 16px)" type="image/webp"><img src="images/photo-vienna-opera.jpg" alt="维也纳，歌剧院内的拱廊与阶梯" width="1333" height="2000" loading="lazy" decoding="async"></picture>
+                        </a>
+                        <figcaption><span class="photo-place">Vienna <span lang="zh-CN">维也纳</span></span><span class="photo-number">02</span></figcaption>
                     </figure>
-                    <figure class="slide">
-                        <img src="images/photo-dc.jpg" alt="美国 · 华盛顿" loading="lazy">
-                        <figcaption>美国 · 华盛顿</figcaption>
+                    <figure class="photograph photograph-03" data-city="Pisa" data-location="比萨">
+                        <a class="photo-link" href="images/photo-pisa-bright.jpg" aria-label="查看照片 03：比萨">
+                            <picture><source srcset="images/photo-pisa-bright-sm.webp 720w, images/photo-pisa-bright.webp 2000w" sizes="(max-width: 360px) calc(100vw - 40px), (max-width: 700px) calc(100vw - 48px), (min-width: 1800px) 794px, calc(45vw - 16px)" type="image/webp"><img src="images/photo-pisa-bright.jpg" alt="比萨，斜塔与蓝天中的云" width="2000" height="1333" loading="lazy" decoding="async"></picture>
+                        </a>
+                        <figcaption><span class="photo-place">Pisa <span lang="zh-CN">比萨</span></span><span class="photo-number">03</span></figcaption>
                     </figure>
-                    <figure class="slide">
-                        <img src="images/photo-rio.jpg" alt="巴西 · 里约热内卢" loading="lazy">
-                        <figcaption>巴西 · 里约热内卢</figcaption>
+                    <figure class="photograph photograph-04 photograph-moscow" data-city="Moscow" data-location="莫斯科">
+                        <a class="photo-link" href="images/photo-moscow.jpg" aria-label="查看照片 04：莫斯科">
+                            <picture><source srcset="images/photo-moscow-sm.webp 720w, images/photo-moscow.webp 1500w" sizes="(max-width: 360px) calc(100vw - 40px), (max-width: 700px) calc(100vw - 48px), (min-width: 1800px) 794px, calc(45vw - 16px)" type="image/webp"><img src="images/photo-moscow.jpg" alt="莫斯科，街头的骑马雕塑" width="1500" height="2000" loading="lazy" decoding="async"></picture>
+                        </a>
+                        <figcaption><span class="photo-place">Moscow <span lang="zh-CN">莫斯科</span></span><span class="photo-number">04</span></figcaption>
+                    </figure>
+                    <figure class="photograph photograph-05" data-city="Kotor" data-location="科托尔">
+                        <a class="photo-link" href="images/photo-kotor.jpg" aria-label="查看照片 05：科托尔">
+                            <picture><source srcset="images/photo-kotor-sm.webp 720w, images/photo-kotor.webp 1800w" sizes="(max-width: 360px) calc(100vw - 40px), (max-width: 700px) calc(100vw - 48px), (min-width: 1800px) 794px, calc(45vw - 16px)" type="image/webp"><img src="images/photo-kotor.jpg" alt="科托尔，山坡上的石墙与红旗" width="1800" height="1201" loading="lazy" decoding="async"></picture>
+                        </a>
+                        <figcaption><span class="photo-place">Kotor <span lang="zh-CN">科托尔</span></span><span class="photo-number">05</span></figcaption>
+                    </figure>
+                    <figure class="photograph photograph-06" data-city="Perast" data-location="佩拉斯特">
+                        <a class="photo-link" href="images/photo-perast.jpg" aria-label="查看照片 06：佩拉斯特">
+                            <picture><source srcset="images/photo-perast-sm.webp 720w, images/photo-perast.webp 1800w" sizes="(max-width: 360px) calc(100vw - 40px), (max-width: 700px) calc(100vw - 48px), (min-width: 1800px) 794px, calc(45vw - 16px)" type="image/webp"><img src="images/photo-perast.jpg" alt="佩拉斯特，山湾旁的石屋与露天座椅" width="1800" height="1200" loading="lazy" decoding="async"></picture>
+                        </a>
+                        <figcaption><span class="photo-place">Perast <span lang="zh-CN">佩拉斯特</span></span><span class="photo-number">06</span></figcaption>
+                    </figure>
+                    <figure class="photograph photograph-07" data-city="Geneva" data-location="日内瓦">
+                        <a class="photo-link" href="images/photo-geneva.jpg" aria-label="查看照片 07：日内瓦">
+                            <picture><source srcset="images/photo-geneva-sm.webp 720w, images/photo-geneva.webp 1600w" sizes="(max-width: 360px) calc(100vw - 40px), (max-width: 700px) calc(100vw - 48px), (min-width: 1800px) 794px, calc(45vw - 16px)" type="image/webp"><img src="images/photo-geneva.jpg" alt="日内瓦，湖边飘扬的各国旗帜" width="1600" height="915" loading="lazy" decoding="async"></picture>
+                        </a>
+                        <figcaption><span class="photo-place">Geneva <span lang="zh-CN">日内瓦</span></span><span class="photo-number">07</span></figcaption>
+                    </figure>
+                    <figure class="photograph photograph-08" data-city="Osaka" data-location="大阪">
+                        <a class="photo-link" href="images/photo-osaka.jpg" aria-label="查看照片 08：大阪">
+                            <picture><source srcset="images/photo-osaka-sm.webp 720w, images/photo-osaka.webp 1600w" sizes="(max-width: 360px) calc(100vw - 40px), (max-width: 700px) calc(100vw - 48px), (min-width: 1800px) 794px, calc(45vw - 16px)" type="image/webp"><img src="images/photo-osaka.jpg" alt="大阪，招牌密集的街道与人群" width="1600" height="1066" loading="lazy" decoding="async"></picture>
+                        </a>
+                        <figcaption><span class="photo-place">Osaka <span lang="zh-CN">大阪</span></span><span class="photo-number">08</span></figcaption>
+                    </figure>
+                    <figure class="photograph photograph-09" data-city="Washington, D.C." data-location="华盛顿">
+                        <a class="photo-link" href="images/photo-dc.jpg" aria-label="查看照片 09：华盛顿">
+                            <picture><source srcset="images/photo-dc-sm.webp 720w, images/photo-dc.webp 1600w" sizes="(max-width: 360px) calc(100vw - 40px), (max-width: 700px) calc(100vw - 48px), (min-width: 1800px) 794px, calc(45vw - 16px)" type="image/webp"><img src="images/photo-dc.jpg" alt="华盛顿，夜晚街头聚集的人群" width="1600" height="1066" loading="lazy" decoding="async"></picture>
+                        </a>
+                        <figcaption><span class="photo-place">Washington, D.C. <span lang="zh-CN">华盛顿</span></span><span class="photo-number">09</span></figcaption>
+                    </figure>
+                    <figure class="photograph photograph-10 photograph-rio" data-city="Rio de Janeiro" data-location="里约">
+                        <a class="photo-link" href="images/photo-rio.jpg" aria-label="查看照片 10：里约">
+                            <picture><source srcset="images/photo-rio-sm.webp 720w, images/photo-rio.webp 1066w" sizes="(max-width: 360px) calc(100vw - 40px), (max-width: 700px) calc(100vw - 48px), (min-width: 1800px) 794px, calc(45vw - 16px)" type="image/webp"><img src="images/photo-rio.jpg" alt="里约，彩色瓷砖铺成的阶梯" width="1066" height="1600" loading="lazy" decoding="async"></picture>
+                        </a>
+                        <figcaption><span class="photo-place">Rio de Janeiro <span lang="zh-CN">里约</span></span><span class="photo-number">10</span></figcaption>
+                    </figure>
+                    <figure class="photograph photograph-11" data-city="Rio de Janeiro" data-location="里约">
+                        <a class="photo-link" href="images/bg-rio.jpg" aria-label="查看照片 11：里约">
+                            <picture><source srcset="images/bg-rio-sm.webp 720w, images/bg-rio.webp 1920w" sizes="(max-width: 360px) calc(100vw - 40px), (max-width: 700px) calc(100vw - 48px), (min-width: 1800px) 794px, calc(45vw - 16px)" type="image/webp"><img src="images/bg-rio.jpg" alt="里约，观景台上的游客与远处的海岸" width="1920" height="1280" loading="lazy" decoding="async"></picture>
+                        </a>
+                        <figcaption><span class="photo-place">Rio de Janeiro <span lang="zh-CN">里约</span></span><span class="photo-number">11</span></figcaption>
+                    </figure>
+                    <figure class="photograph photograph-12" data-city="Budapest" data-location="布达佩斯">
+                        <a class="photo-link" href="images/photo-budapest.jpg" aria-label="查看照片 12：布达佩斯">
+                            <picture><source srcset="images/photo-budapest-sm.webp 720w, images/photo-budapest.webp 2000w" sizes="(max-width: 360px) calc(100vw - 40px), (max-width: 700px) calc(100vw - 48px), (min-width: 1800px) 794px, calc(45vw - 16px)" type="image/webp"><img src="images/photo-budapest.jpg" alt="布达佩斯，蓝天下的国会大厦" width="2000" height="1333" loading="lazy" decoding="async"></picture>
+                        </a>
+                        <figcaption><span class="photo-place">Budapest <span lang="zh-CN">布达佩斯</span></span><span class="photo-number">12</span></figcaption>
+                    </figure>
+                    <figure class="photograph photograph-13" data-city="Belgrade" data-location="贝尔格莱德">
+                        <a class="photo-link" href="images/photo-belgrade.jpg" aria-label="查看照片 13：贝尔格莱德">
+                            <picture><source srcset="images/photo-belgrade-sm.webp 720w, images/photo-belgrade.webp 2000w" sizes="(max-width: 360px) calc(100vw - 40px), (max-width: 700px) calc(100vw - 48px), (min-width: 1800px) 794px, calc(45vw - 16px)" type="image/webp"><img src="images/photo-belgrade.jpg" alt="贝尔格莱德，广场前的建筑与行人" width="2000" height="1333" loading="lazy" decoding="async"></picture>
+                        </a>
+                        <figcaption><span class="photo-place">Belgrade <span lang="zh-CN">贝尔格莱德</span></span><span class="photo-number">13</span></figcaption>
                     </figure>
                 </div>
-                <button class="slider-btn prev" aria-label="Previous">‹</button>
-                <button class="slider-btn next" aria-label="Next">›</button>
-                <div class="slider-dots" aria-hidden="true"></div>
-            </div>
-        </section>
+            </section>
+            <section class="writing-section" id="writing" aria-labelledby="writing-title">
+                <div class="writing-heading"><h2 id="writing-title">Writing</h2></div>
+                <div class="writing-content">
+                    <a class="writing-link" href="https://www.saisperspectives.com/202526-issue/2026/3/27/chains-of-resilience" target="_blank" rel="noopener"><span>Chains of Resilience</span><span class="writing-arrow" aria-hidden="true">↗</span></a>
+                    <p class="writing-source">SAIS Perspectives</p>
+                </div>
+            </section>
+        </main>
 
-        <footer class="site-footer">
-            <a href="https://github.com/HarugiGo" target="_blank" rel="noopener">github.com/HarugiGo</a>
+        <footer class="site-footer" id="elsewhere">
+            <div class="footer-bottom"><a href="#top">Back to top <span aria-hidden="true">↑</span></a></div>
         </footer>
-    </main>
+    </div>
 
-    <script src="script.js" defer></script>
+    <dialog class="photo-viewer" aria-label="摄影作品查看器">
+        <div class="viewer-content">
+            <div class="viewer-header"><span>Summer Xia / Photographs</span><button class="viewer-close" type="button" aria-label="关闭照片查看器">Close <span aria-hidden="true">×</span></button></div>
+            <div class="viewer-stage"><img class="viewer-image" alt=""></div>
+            <div class="viewer-footer">
+                <p class="viewer-caption" aria-live="polite"><span class="viewer-place"></span><span class="viewer-location"></span></p>
+                <div class="viewer-controls"><button class="viewer-prev" type="button" aria-label="上一张照片">←</button><span class="viewer-count"></span><button class="viewer-next" type="button" aria-label="下一张照片">→</button></div>
+            </div>
+        </div>
+    </dialog>
 </body>
 </html>

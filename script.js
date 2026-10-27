@@ -1,61 +1,77 @@
-(function () {
-    const slider = document.getElementById('slider');
-    if (!slider) return;
+(() => {
+    const viewer = document.querySelector('.photo-viewer');
+    const photographs = Array.from(document.querySelectorAll('.photograph'));
 
-    const track = slider.querySelector('.slider-track');
-    const slides = Array.from(slider.querySelectorAll('.slide'));
-    const prevBtn = slider.querySelector('.slider-btn.prev');
-    const nextBtn = slider.querySelector('.slider-btn.next');
-    const dotsWrap = slider.querySelector('.slider-dots');
-    const total = slides.length;
+    if (!viewer || typeof viewer.showModal !== 'function') return;
 
-    let index = 0;
-    let autoTimer;
+    const viewerImage = viewer.querySelector('.viewer-image');
+    const viewerPlace = viewer.querySelector('.viewer-place');
+    const viewerLocation = viewer.querySelector('.viewer-location');
+    const viewerCount = viewer.querySelector('.viewer-count');
+    let activeIndex = 0;
+    let opener = null;
+    let touchStart = null;
 
-    slides.forEach((_, i) => {
-        const dot = document.createElement('button');
-        dot.setAttribute('aria-label', `Slide ${i + 1}`);
-        dot.addEventListener('click', () => go(i, true));
-        dotsWrap.appendChild(dot);
-    });
-    const dots = Array.from(dotsWrap.querySelectorAll('button'));
-
-    function render() {
-        track.style.transform = `translateX(-${index * 100}%)`;
-        dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    function showPhotograph(index) {
+        activeIndex = (index + photographs.length) % photographs.length;
+        const photograph = photographs[activeIndex];
+        const image = photograph.querySelector('img');
+        viewerImage.src = photograph.querySelector('.photo-link').href;
+        viewerImage.alt = image.alt;
+        viewerPlace.textContent = photograph.dataset.city;
+        viewerLocation.textContent = photograph.dataset.location;
+        viewerCount.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${photographs.length}`;
     }
 
-    function go(i, userDriven) {
-        index = (i + total) % total;
-        render();
-        if (userDriven) restart();
-    }
-
-    function next() { go(index + 1); }
-    function prev() { go(index - 1); }
-
-    function start() { autoTimer = setInterval(next, 6000); }
-    function stop() { clearInterval(autoTimer); }
-    function restart() { stop(); start(); }
-
-    prevBtn.addEventListener('click', () => { prev(); restart(); });
-    nextBtn.addEventListener('click', () => { next(); restart(); });
-
-    slider.addEventListener('mouseenter', stop);
-    slider.addEventListener('mouseleave', start);
-
-    let touchStartX = 0;
-    slider.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
-    slider.addEventListener('touchend', e => {
-        const dx = e.changedTouches[0].clientX - touchStartX;
-        if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); restart(); }
+    photographs.forEach((photograph, index) => {
+        const link = photograph.querySelector('.photo-link');
+        link.addEventListener('click', event => {
+            if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+            event.preventDefault();
+            opener = link;
+            showPhotograph(index);
+            viewer.showModal();
+            document.body.classList.add('viewer-open');
+        });
     });
 
-    document.addEventListener('keydown', e => {
-        if (e.key === 'ArrowLeft')  { prev(); restart(); }
-        if (e.key === 'ArrowRight') { next(); restart(); }
+    viewer.querySelector('.viewer-close').addEventListener('click', () => viewer.close());
+    viewer.querySelector('.viewer-prev').addEventListener('click', () => showPhotograph(activeIndex - 1));
+    viewer.querySelector('.viewer-next').addEventListener('click', () => showPhotograph(activeIndex + 1));
+
+    viewer.addEventListener('close', () => {
+        document.body.classList.remove('viewer-open');
+        touchStart = null;
+        opener?.focus({ preventScroll: true });
     });
 
-    render();
-    start();
+    viewer.addEventListener('keydown', event => {
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+            event.preventDefault();
+            showPhotograph(activeIndex + (event.key === 'ArrowLeft' ? -1 : 1));
+        }
+    });
+
+    const viewerStage = viewer.querySelector('.viewer-stage');
+    viewerStage.addEventListener('click', event => {
+        if (event.target === viewerStage) viewer.close();
+    });
+
+    viewerStage.addEventListener('touchstart', event => {
+        touchStart = event.touches.length === 1
+            ? { clientX: event.touches[0].clientX, clientY: event.touches[0].clientY }
+            : null;
+    }, { passive: true });
+
+    viewerStage.addEventListener('touchend', event => {
+        if (!touchStart || event.changedTouches.length !== 1) return;
+        const distanceX = event.changedTouches[0].clientX - touchStart.clientX;
+        const distanceY = event.changedTouches[0].clientY - touchStart.clientY;
+        touchStart = null;
+        if (Math.abs(distanceX) > 65 && Math.abs(distanceX) > Math.abs(distanceY) * 1.5) {
+            showPhotograph(activeIndex + (distanceX < 0 ? 1 : -1));
+        }
+    }, { passive: true });
+
+    viewerStage.addEventListener('touchcancel', () => { touchStart = null; }, { passive: true });
 })();
